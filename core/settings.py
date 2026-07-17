@@ -23,9 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-qw49pod$-s$j+^p5yq@jc-@7vf$%d30rm72tfj(d=7*v6#1l1o"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "project-ai-travel-advisor-g7tsqs304-agcortijo-2505s-projects.vercel.app"
+]
 
 
 # Application definition
