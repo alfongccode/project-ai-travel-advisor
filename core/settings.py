@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,16 +19,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-qw49pod$-s$j+^p5yq@jc-@7vf$%d30rm72tfj(d=7*v6#1l1o"
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    "project-ai-travel-advisor-g7tsqs304-agcortijo-2505s-projects.vercel.app"
-]
+ALLOWED_HOSTS = []
 
+# Vercel expone automáticamente esta variable con el dominio del deployment actual
+VERCEL_URL = os.environ.get("VERCEL_URL")
+if VERCEL_URL:
+    ALLOWED_HOSTS.append(VERCEL_URL)
+
+# El punto inicial permite CUALQUIER subdominio de vercel.app
+# (cubre todos los hashes de preview que Vercel genera en cada deploy)
+ALLOWED_HOSTS.append(".vercel.app")
+
+# Necesario en Django 4+ para que el POST del formulario (csrf_token) no falle
+# detrás del proxy HTTPS de Vercel
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.vercel.app",
+]
 
 # Application definition
 
