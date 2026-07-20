@@ -8,9 +8,20 @@ https://docs.djangoproject.com/en/6.0/howto/deployment/asgi/
 """
 
 import os
-
 from django.core.asgi import get_asgi_application
+from starlette.applications import Starlette
+from api import apps_api
+from starlette.routing import Mount
+from starlette.staticfiles import StaticFiles
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
 
-application = get_asgi_application()
+django_app = get_asgi_application()
+
+application = Starlette(
+    routes=[
+        Mount("/api", app=apps_api),
+        Mount("/admin", app=django_app),
+        Mount("/", app=StaticFiles(directory="static", html=True), name="static")
+    ]
+)

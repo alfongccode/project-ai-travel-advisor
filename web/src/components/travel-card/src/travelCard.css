@@ -1,0 +1,114 @@
+@import '../../../index.css';
+
+* {
+    box-sizing: border-box;
+}
+
+.response-card {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 26px;
+    position: relative;
+    background-color: var(--paper);
+    background-image:
+        radial-gradient(circle at 20% 15%, rgba(139,108,66,0.10), transparent 30%),
+        radial-gradient(circle at 80% 85%, rgba(101,74,42,0.12), transparent 32%);
+    border-radius: 4px;
+    padding: 30px 42px 26px;
+    box-shadow:
+        0 18px 36px rgba(0,0,0,0.35),
+        inset 0 0 40px rgba(101,74,42,0.15),
+        inset 0 0 3px rgba(0,0,0,0.25);
+    animation: fadeIn 0.35s ease-in;
+}
+
+.response-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.3;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+}
+
+.response-stamp {
+    position: absolute;
+    top: 20px;
+    right: 34px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    opacity: 0.75;
+    transform: rotate(4deg);
+}
+
+.response-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-variant: small-caps;
+    color: var(--ink);
+    font-size: 1.9rem;
+    margin: 0 0 10px;
+    padding-right: 120px;
+    letter-spacing: 0.02em;
+}
+
+.response-summary {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    margin: 0 0 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--border-soft);
+}
+
+.response-section {
+    margin-bottom: 20px;
+}
+
+.response-label {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-variant: small-caps;
+    letter-spacing: 0.08em;
+    font-size: 0.95rem;
+    color: var(--green);
+    margin-bottom: 6px;
+}
+
+.response-text {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.08rem;
+    line-height: 1.65;
+    color: var(--ink);
+    margin: 0;
+}
+
+.response-footer {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 24px 0;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border-soft);
+}
+
+.response-footer .response-label {
+    margin-bottom: 0;
+}
+
+.response-cost {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--red);
+}
+
+.response-img {
+    display: block;
+    width: 100%;
+}

@@ -1,0 +1,69 @@
+@import '../../../index.css';
+
+* {
+    box-sizing: border-box;
+}
+
+.loading-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    align-items: center;
+    justify-content: center;
+    background: rgba(30, 20, 10, 0.75);
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.15s ease-in;
+}
+
+.loading-overlay.active {
+    display: flex;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.loading-compass {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 3px solid rgba(232, 220, 184, 0.25);
+    border-top-color: var(--gold);
+    border-right-color: var(--gold);
+    animation: spin 0.9s linear infinite;
+    position: relative;
+}
+
+.loading-compass::after {
+    content: "✦";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 1.2rem;
+    animation: spin-reverse 1.4s linear infinite;
+}
+
+.loading-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--paper);
+    letter-spacing: 0.03em;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}

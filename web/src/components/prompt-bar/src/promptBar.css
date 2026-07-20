@@ -1,0 +1,86 @@
+@import '../../../index.css';
+
+* {
+    box-sizing: border-box;
+}
+
+.input-bar {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    margin-top: 26px;
+    background: var(--paper);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 14px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+}
+
+.input-bar input[type="text"] {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    outline: none;
+    padding: 0 10px;
+}
+
+.input-bar input[type="text"]::placeholder {
+    color: #a5906d;
+}
+
+.input-bar button {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-variant: small-caps;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    padding: 12px 24px;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-bar button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+.input-bar button:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    background-color: currentColor;
+    -webkit-mask-image: var(--icon-url);
+    mask-image: var(--icon-url);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.btn-ask {
+    --icon-url: url(../resources/icons/travel.svg);
+    background: var(--red);
+    color: #f5ecd7;
+    box-shadow: 0 4px 10px rgba(143,45,45,0.4);
+    border: 1px solid transparent;
+}
+
+.btn-clear {
+    --icon-url: url(../resources/icons/eraser.svg);
+    background: transparent;
+    color: var(--ink-soft);
+    border: 1px solid var(--ink-soft);
+}

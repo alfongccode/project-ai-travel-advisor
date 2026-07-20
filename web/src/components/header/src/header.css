@@ -1,0 +1,69 @@
+@import '../../../index.css';
+
+* {
+    box-sizing: border-box;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    width: 100%;
+    max-width: 900px;
+    position: relative;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 4px rgba(0,0,0,0.35));
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.25);
+}
+
+.brand-sub {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-soft);
+    opacity: 0.8;
+}
+
+.brand-stamp {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    border: 1.5px solid var(--ink-soft);
+    border-radius: 50%;
+    padding: 10px 12px;
+    opacity: 0.55;
+    transform: rotate(-8deg);
+}
+
+@media (max-width: 640px) {
+    .topbar {
+        padding: 16px 20px;
+    }
+}

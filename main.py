@@ -130,6 +130,7 @@ class TravelAdvisor:
             """ % itinerary,
             size="auto"
         )
+        print(result.data[0])
         return result.data[0].b64_json
 
     def get_photographs(self, trip_location, limit=4):
@@ -169,6 +170,7 @@ class TravelAdvisor:
         response_text = TOOLS_MAPPING[function_name](arguments)
         if arguments['status'] == REQUEST_STATUS_TYPES['MISSING_INFO']:
             self.context.append({"role": "assistant", "content": response_text})
+        print(arguments)
         return arguments
 
     def clear(self):
@@ -176,3 +178,6 @@ class TravelAdvisor:
         
     def get_answers_history(self):
         return self.context[1:]
+
+# Initialize singleton for context sharing
+travel_advisor = TravelAdvisor().initialize_client_session()
