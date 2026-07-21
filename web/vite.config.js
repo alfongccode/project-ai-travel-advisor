@@ -5,9 +5,8 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/static/',
   build: {
-    outDir: path.resolve(__dirname, '../static'), 
+    outDir: path.resolve(__dirname, '../static'),
     emptyOutDir: true,
   }
 })
