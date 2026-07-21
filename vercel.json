@@ -6,12 +6,11 @@
       "config": { "distDir": "../static" }
     },
     {
-      "src": "core/wsgi.py",
+      "src": "core/asgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/(.*)", "dest": "core/wsgi.py" }
+    { "src": "/(.*)", "dest": "core/asgi.py" }
   ]
 }
