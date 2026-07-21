@@ -3,7 +3,7 @@
     {
       "src": "web/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "config": { "distDir": "/static/" }
     },
     {
       "src": "core/wsgi.py",
