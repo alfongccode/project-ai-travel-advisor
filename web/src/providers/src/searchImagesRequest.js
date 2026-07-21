@@ -1,5 +1,5 @@
 const ENDPOINTS = {
-    SEARCH_IMAGES: '/api/generate/images'
+    SEARCH_IMAGES: '/api/search/images'
 };
 
 function getLocationImages(country, city) {
