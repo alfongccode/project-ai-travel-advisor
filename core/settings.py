@@ -89,6 +89,13 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': os.environ['REDIS_URL'],
+    }
+}
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
